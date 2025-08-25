@@ -1,10 +1,38 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import HeroText from "@/components/HeroText";
+import About from "@/components/About";
+import Projects from "@/components/Projects";
+import Resume from "@/components/Resume";
+import Blogs from "@/components/Blogs";
+import Contact from "@/components/Contact";
 
 export default function Home() {
   const [page, setPage] = useState("about");
+  const [content, setContent] = useState(<About />);
+
+  useEffect(() => {
+    switch (page) {
+      case "about":
+        setContent(<About />);
+        break;
+      case "projects":
+        setContent(<Projects />);
+        break;
+      case "resume":
+        setContent(<Resume />);
+        break;
+      case "blogs":
+        setContent(<Blogs />);
+        break;
+      case "contact":
+        setContent(<Contact />);
+        break;
+      default:
+        setContent(<About />);
+    }
+  }, [page]);
 
   return (
     <main className="min-h-screen bg-[#0A0A0A]">
@@ -12,9 +40,11 @@ export default function Home() {
         <HeroText />
       </div>
       <div className="nav flex flex-row justify-center">
-        <Navbar />
+        <Navbar page={page} setPage={setPage} />
       </div>
-      <div className="content-reveal min-h-screen"></div>
+      <div id="content" className="content-reveal min-h-screen">
+        {content}
+      </div>
     </main>
   );
 }

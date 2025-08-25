@@ -1,11 +1,15 @@
 "use client";
-import { abort } from "process";
 import React, { useState, useEffect } from "react";
 
-export default function Navbar() {
+type NavbarProps = {
+  page: string;
+  setPage: React.Dispatch<React.SetStateAction<string>>;
+};
+
+export default function Navbar({ page, setPage }: NavbarProps) {
   const [scrolled, setScrolled] = useState(0);
   const [height, setHeight] = useState(0);
-  const [page, setPage] = useState("about");
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -29,12 +33,15 @@ export default function Navbar() {
   function handleClick(event: React.MouseEvent<HTMLParagraphElement>) {
     const targetId = event.currentTarget.id;
     setPage(targetId);
+    const element = document.getElementById("content");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   }
 
   function HandleScrolledClicked(event: React.MouseEvent<HTMLParagraphElement>) {
     const targetId = event.currentTarget.id;
     setPage(targetId);
-
   }
 
   if (scrolled === 0) {
