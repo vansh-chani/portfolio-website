@@ -30,6 +30,17 @@ export default function Navbar({ page, setPage }: NavbarProps) {
     };
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setHeight(window.innerHeight);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   function handleClick(event: React.MouseEvent<HTMLParagraphElement>) {
     const targetId = event.currentTarget.id;
     setPage(targetId);
