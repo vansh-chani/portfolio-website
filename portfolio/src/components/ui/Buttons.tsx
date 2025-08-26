@@ -4,6 +4,7 @@ import linkedinLogo from '../../assets/Linkedin.svg';
 import arrow from '../../assets/ArrowUR.svg';
 import discordLogo from '../../assets/Discord.svg';
 import mailLogo from '../../assets/Mail.svg';
+import { url } from 'inspector/promises';
 
 export function GitHubButton() {
     return (
@@ -68,6 +69,27 @@ export function MailButton() {
         >
             <Image src={mailLogo} alt="Mail" className="inline-block mr-2" />
             <p>Email</p>
+            <Image src={arrow} alt="Arrow" className="arrow inline-block ml-2" />
+        </a>
+    );
+}
+
+type GithubButtonProps = {
+  githubUrl: string;
+};
+
+export function ProjectGithubButton({ githubUrl }: GithubButtonProps){
+    return (
+        <a
+            href={githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-10 cursor-pointer bg-[#fff0] text-[#8f8f8f] py-2 px-4 w-[154px] rounded-[10px] flex items-center justify-center font-lexend font-medium text-[16px] border border-[#ffffff80] hover:bg-[#ffffff25]
+        [&_.arrow]:transition-transform [&_.arrow]:duration-300
+        hover:[&_.arrow]:translate-x-1 hover:[&_.arrow]:translate-y-[-2px]"
+        >
+            <Image src={githubLogo} alt="GitHub" className="inline-block mr-2" />
+            <p>Github</p>
             <Image src={arrow} alt="Arrow" className="arrow inline-block ml-2" />
         </a>
     );
