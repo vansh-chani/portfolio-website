@@ -1,12 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/ui/Navbar";
 import HeroText from "@/components/HeroText";
 import About from "@/components/About";
 import Projects from "@/components/Projects";
 import Resume from "@/components/Resume";
 import Blogs from "@/components/Blogs";
 import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const [page, setPage] = useState("about");
@@ -45,6 +46,7 @@ export default function Home() {
       <div id="content" className="content-reveal min-h-screen">
         {content}
       </div>
+      <Footer />
     </main>
   );
 }

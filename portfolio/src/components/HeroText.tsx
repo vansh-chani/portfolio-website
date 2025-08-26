@@ -1,4 +1,4 @@
-import { GitHubButton, LinkedInButton } from "./Buttons";
+import { GitHubButton, LinkedInButton } from "./ui/Buttons";
 
 export default function HeroText() {
     return (
