@@ -68,7 +68,7 @@ export default function Navbar({ page, setPage }: NavbarProps) {
   }
   else if (scrolled >= height - 70) {
     return (
-      <nav className="navbar flex flex-row items-center bg-[#16161680] backdrop-blur-xl shadow-[0_4px_20px_rgba(0,0,0,1)] fixed top-7 w-[734px] max-h-[58px] border-1 border-white/10 rounded-[20px] transition-all duration-300 ease-in-out">
+      <nav className="navbar flex flex-row items-center z-20 bg-[#16161680] backdrop-blur-xl shadow-[0_4px_20px_rgba(0,0,0,1)] fixed top-7 w-[734px] max-h-[58px] border-1 border-white/10 rounded-[20px] transition-all duration-300 ease-in-out">
         <NavItemsScrolled />
       </nav>
     );
