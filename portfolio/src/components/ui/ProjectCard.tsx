@@ -1,5 +1,6 @@
 import Image from "next/image";
 import defaultimg from "../../assets/default.jpg"
+import defaultimg2 from "../../assets/default2.jpg"
 import { ProjectGithubButton } from "./Buttons";
 
 type ProjectProps = {
@@ -21,7 +22,7 @@ export default function ProjectCard(project: ProjectProps) {
                     <Image src={project.image || defaultimg} alt={project.title} width={734} height={520} className="object-cover w-full h-full rounded-[20px]" loading="eager" priority />
                 </div>
                 <div className="project-info h-[520px] w-[386px] flex flex-col items-center justify-start p-4 pt-10 border border-white/10 rounded-[20px] 
-  bg-[radial-gradient(ellipse,rgba(0,0,0,0)_0%,rgba(10,10,10,1)_80%),url('/crossPattern.svg'),linear-gradient(rgba(22,22,22,0.5),rgba(22,22,22,0.5))]
+  bg-[radial-gradient(ellipse,rgba(0,0,0,0.3)_0%,rgba(10,10,10,1)_80%),url('/crossPattern.svg'),linear-gradient(rgba(22,22,22,0.5),rgba(22,22,22,0.5))]
   bg-[length:auto,40px,auto] bg-[no-repeat,repeat,repeat] bg-center">
                     <div className="flex flex-row items-center justify-between w-full px-4 mb-4">
                         <h2 className="project-title text-2xl font-bold font-lexend text-white">{project.title}</h2>
@@ -42,7 +43,7 @@ export default function ProjectCard(project: ProjectProps) {
         return (
             <div className="project-card flex flex-row items-center justify-center mt-16 gap-9">
                 <div className="project-info h-[520px] w-[386px] flex flex-col items-center justify-start p-4 pt-10 border border-white/10 rounded-[20px] 
-  bg-[radial-gradient(ellipse,rgba(0,0,0,0)_0%,rgba(10,10,10,1)_80%),url('/crossPattern.svg'),linear-gradient(rgba(22,22,22,0.5),rgba(22,22,22,0.5))]
+  bg-[radial-gradient(ellipse,rgba(0,0,0,0.3)_0%,rgba(10,10,10,1)_80%),url('/crossPattern.svg'),linear-gradient(rgba(22,22,22,0.5),rgba(22,22,22,0.5))]
   bg-[length:auto,40px,auto] bg-[no-repeat,repeat,repeat] bg-center">
                     <div className="flex flex-row items-center justify-between w-full px-4 mb-4">
                         <h2 className="project-title text-2xl font-bold font-lexend text-white">{project.title}</h2>
@@ -57,7 +58,7 @@ export default function ProjectCard(project: ProjectProps) {
                     <ProjectGithubButton githubUrl={project.githubUrl} />
                 </div>
                 <div className="project-image w-[734px] h-[520px] border-[1px] rounded-[20px] border-white/10">
-                    <Image src={project.image || defaultimg} alt={project.title} width={734} height={520} className="object-cover w-full h-full rounded-[20px]" loading="eager" />
+                    <Image src={project.image || defaultimg2} alt={project.title} width={734} height={520} className="object-cover w-full h-full rounded-[20px]" loading="eager" />
                 </div>
             </div>
         );
