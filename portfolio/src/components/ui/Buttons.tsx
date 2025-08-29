@@ -60,7 +60,7 @@ export function DiscordButton() {
 export function MailButton() {
     return (
         <a
-            href="mailto:vansh.chani.code@gmail.com"
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=vansh.chani.code@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-10 cursor-pointer bg-[#fff0] text-[#8f8f8f] py-2 px-4 w-[154px] rounded-[10px] flex items-center justify-center font-lexend font-medium text-[16px] border border-[#ffffff80] hover:bg-[#ffffff25]
