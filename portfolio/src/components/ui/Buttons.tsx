@@ -75,10 +75,10 @@ export function MailButton() {
 }
 
 type GithubButtonProps = {
-  githubUrl: string;
+    githubUrl: string;
 };
 
-export function ProjectGithubButton({ githubUrl }: GithubButtonProps){
+export function ProjectGithubButton({ githubUrl }: GithubButtonProps) {
     return (
         <a
             href={githubUrl}
@@ -91,6 +91,48 @@ export function ProjectGithubButton({ githubUrl }: GithubButtonProps){
             <Image src={githubLogo} alt="GitHub" className="inline-block mr-2" />
             <p>Github</p>
             <Image src={arrow} alt="Arrow" className="arrow inline-block ml-2" />
+        </a>
+    );
+}
+
+export function GithubButtonSmall() {
+    return (
+        <a
+            href="https://github.com/vansh-chani"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 cursor-pointer bg-[#fff0] text-[#8f8f8f] py-1 px-3 w-[113px] rounded-[10px] flex items-center justify-center font-lexend font-medium text-[14px] border border-[#ffffff80] hover:bg-[#ffffff25]"
+        >
+            <Image src={githubLogo} alt="GitHub" className="inline-block mr-2 w-4" />
+            <p>Github</p>
+        </a>
+    );
+}
+
+export function LinkedInButtonSmall() {
+    return (
+        <a
+            href="https://www.linkedin.com/in/vansh-chani-506250285/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 cursor-pointer bg-[#fff0] text-[#8f8f8f] py-1 px-3 w-[113px] rounded-[10px] flex items-center justify-center font-lexend font-medium text-[14px] border border-[#ffffff80] hover:bg-[#ffffff25]"
+        >
+            <Image src={linkedinLogo} alt="LinkedIn" className="inline-block mr-2 w-4" />
+            <p>LinkedIn</p>
+        </a>
+    );
+}
+
+export function MailButtonSmall() {
+    return (
+        <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=vansh.chani.code@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 cursor-pointer bg-[#fff0] text-[#8f8f8f] py-1 px-3 w-[113px] rounded-[10px] flex items-center justify-center font-lexend font-medium text-[14px] border border-[#ffffff80] hover:bg-[#ffffff25]"
+        >
+            <Image src={mailLogo} alt="Mail" className="inline-block mr-2 w-4" />
+            <p>Email</p>
         </a>
     );
 }
