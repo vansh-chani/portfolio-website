@@ -13,17 +13,21 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-jetBrains-mono: 'JetBrains Mono', monospace;
-  --font-lexend: 'Lexend' , sans-serif;
+  --font-lexend: 'Lexend', sans-serif;
 }
 
 @theme {
-  --animate-appear: appear 1.4s ease-in-out both;
+  --animate-appear: appear 1s ease-in-out both;
 
   @keyframes appear {
-    from { opacity: 0;
-      transform: translateY(20px);
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+      filter: blur(5px);
     }
-    to   { opacity: 1;
+
+    to {
+      opacity: 1;
       transform: translateY(0);
     }
   }
