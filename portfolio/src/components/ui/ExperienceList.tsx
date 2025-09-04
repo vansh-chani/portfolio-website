@@ -12,10 +12,10 @@ export default function ExperienceList(ListProps: { Company: string, Position: s
                before:absolute before:left-0 before:top-2 before:h-[10px] before:w-[10px] before:bg-white before:rounded-[2px] 
                after:absolute after:left-[4px] after:top-[19px] after:bottom-[-38px] after:w-[2px] after:bg-gray-500 last:after:hidden">
                 <h3 className="font-lexend text-[20px] font-normal">{ItemProps.Position}</h3>
-                <p className="font-lexend text-[16px] font-normal text-[#8f8f8f]">{ItemProps.Time}</p>
+                <p className="font-lexend text-[18px] font-normal text-[#8f8f8f]">{ItemProps.Time}</p>
                 {ItemProps.Description && (
                     <div className="description">
-                        <p className="font-lexend text-[14px] font-light text-[#8f8f8f]">{ItemProps.Description}</p>
+                        <p className="font-lexend text-[16px] font-light text-[#8f8f8f]">{ItemProps.Description}</p>
                     </div>
                 )}
             </li>
