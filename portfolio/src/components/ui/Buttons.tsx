@@ -136,3 +136,19 @@ export function MailButtonSmall() {
         </a>
     );
 }
+
+export function CertificationsButton(CertUrlProps: { CertUrl: string }) {
+     return (
+        <a
+            href={CertUrlProps.CertUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 cursor-pointer bg-[#fff0] text-[#8f8f8f] py-2 px-4 w-[154px] rounded-[10px] flex items-center justify-center font-lexend font-medium text-[14px] border border-[#ffffff80] hover:bg-[#ffffff25]
+        [&_.arrow]:transition-transform [&_.arrow]:duration-300
+        hover:[&_.arrow]:translate-x-1 hover:[&_.arrow]:translate-y-[-2px]"
+        >
+            <p>Certificate</p>
+            <Image src={arrow} alt="Arrow" className="arrow inline-block ml-2 w-4" />
+        </a>
+    );
+}

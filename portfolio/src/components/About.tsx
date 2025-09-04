@@ -6,7 +6,7 @@ import SideNav from "./ui/SideNav";
 import ExperienceList from "./ui/ExperienceList";
 import EducationCard from "./ui/EducationCard";
 import TechSkillsCard from "./ui/TechSkillsCard";
-import { title } from "process";
+import CertificationCard from "./ui/CertificationCard";
 
 const experienceData = [
     {
@@ -62,6 +62,27 @@ const techSkillsData = [
     }
 ];
 
+const certificationsData = [
+    {
+        Title: "Oracle OCI 2025 Generative AI Professional (1Z0-1127-25)",
+        Issuer: "Oracle University",
+        Year: "2025 - 27",
+        CertUrl: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=2F74B7CBB5EC27F433D29D5FADF4F996A8B987723B9DD1ACF9567BEEED08CB69"
+    },
+    {
+        Title: "Oracle OCI 2025 Certified AI Foundations Associate (1Z0-1122-25)",
+        Issuer: "Oracle University",
+        Year: "2025 - 27",
+        CertUrl: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=EDF2A3BD2E393192C0A6E2CD3EC42546F6545F0DB35C4E65606AF84E1D767BFD"
+    },
+    {
+        Title: "Supervised Machine Learning: Regression and Classification",
+        Issuer: "DeepLearning.AI, Stanford Online",
+        Year: "2024",
+        CertUrl: "https://www.coursera.org/account/accomplishments/verify/NKWZ2F90781S?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course"
+    }
+];
+
 export default function About() {
 
     return (
@@ -108,8 +129,13 @@ export default function About() {
                     <TechSkillsCard key={index} Title={tech.title} Skills={tech.skills} />
                 ))}
             </div>
+            <div className="certifications pt-22 w-120 ml-90 mb-32" id="certifications_section">
+                <h1 className="font-jetBrains-mono text-[36px] font-extrabold">Certifications</h1>
+                {certificationsData.map((cert, index) => (
+                    <CertificationCard key={index} Title={cert.Title} Issuer={cert.Issuer} Year={cert.Year} CertUrl={cert.CertUrl} />
+                ))}
+            </div>
 
-            <div className="h-screen"></div>
         </section>
     );
 }
