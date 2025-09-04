@@ -5,6 +5,8 @@ import { GithubButtonSmall, LinkedInButtonSmall, MailButtonSmall } from "./ui/Bu
 import SideNav from "./ui/SideNav";
 import ExperienceList from "./ui/ExperienceList";
 import EducationCard from "./ui/EducationCard";
+import TechSkillsCard from "./ui/TechSkillsCard";
+import { title } from "process";
 
 const experienceData = [
     {
@@ -29,19 +31,34 @@ const educationData = [
         institution: "Vellore Institute of Technology, Vellore",
         degree: "B.Tech in Computer Science with specialization in AI/ML",
         time: "Aug 2023 - May 2027",
-        grade: "9.42/10.0"
+        grade: "9.42 / 10.0"
     },
     {
         institution: "Police D.A.V. Public School, Ludhiana",
         degree: "12th Standard, CBSE",
         time: "Apr 2022 - May 2023",
-        Percentage: "96.2%"
+        Percentage: "96.2 %"
     },
     {
         institution: "D.A.V. Public School, Ludhiana",
         degree: "10th Standard, CBSE",
         time: "Apr 2020 - Mar 2021",
-        Percentage: "91.2%"
+        Percentage: "91.2 %"
+    }
+];
+
+const techSkillsData = [
+    {
+        title: "Languages",
+        skills: ["C", "C++", "Java", "Python", "HTML", "CSS", "JavaScript", "TypeScript", "SQL"]
+    },
+    {
+        title: "Frameworks & Libraries",
+        skills: ["NumPy", "Pandas", "Matplotlib", "Scikit-Learn", "TensorFlow", "Langchain", "FastAPI", "React", "Next.js", "Tailwind CSS"]
+    },
+    {
+        title: "Tools",
+        skills: ["Git", "VS Code", "GitHub", "Google Colab", "IntelliJ IDEA", "Jupyter Notebook", "Postman"]
     }
 ];
 
@@ -83,6 +100,12 @@ export default function About() {
                 <h1 className="font-jetBrains-mono text-[36px] font-extrabold">Education</h1>
                 {educationData.map((edu, index) => (
                     <EducationCard key={index} Institution={edu.institution} Degree={edu.degree} Time={edu.time} Grade={edu.grade} Percentage={edu.Percentage} />
+                ))}
+            </div>
+            <div className="techSkills pt-22 w-110 ml-80" id="techSkills_section">
+                <h1 className="font-jetBrains-mono text-[36px] font-extrabold">Technical Skills</h1>
+                {techSkillsData.map((tech, index) => (
+                    <TechSkillsCard key={index} Title={tech.title} Skills={tech.skills} />
                 ))}
             </div>
 
