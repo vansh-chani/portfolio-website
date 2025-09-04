@@ -124,7 +124,7 @@ export default function About() {
             </div>
             <div className="desc-about mt-12 w-110 ml-80 opacity-0">
                 <p className="font-lexend text-white font-normal text-[20px]">
-                    I'm a software developer passionate about AI and machine learning. I design and implement data-driven algorithms and intelligent systems that adapt, optimize performance, and deliver real-world impact.
+                    I&apos;m a software developer passionate about AI and machine learning. I design and implement data-driven algorithms and intelligent systems that adapt, optimize performance, and deliver real-world impact.
                 </p>
             </div>
             <div className="experience pt-22 w-110 ml-80 opacity-0" id="experience_section">
