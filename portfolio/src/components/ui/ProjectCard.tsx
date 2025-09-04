@@ -28,7 +28,7 @@ export default function ProjectCard(project: ProjectProps) {
                         <h2 className="project-title text-2xl font-bold font-lexend text-white">{project.title}</h2>
                         <p className="project-date font-lexend font-light text-white/70">{project.date}</p>
                     </div>
-                    <p className="project-description w-full px-4 font-lexend font-light text-[20px] text-[#8F8F8F]">{project.description}</p>
+                    <p className="project-description w-full px-4 font-lexend font-light text-[18px] text-[#8F8F8F]">{project.description}</p>
                     <div className="project-techstack flex flex-row flex-wrap gap-2 mt-4 px-4">
                         {project.techstack.map((tech, index) => (
                             <span key={index} className="tech-item bg-white/10 text-white/70 text-xs font-jetBrains-mono px-2 py-1 backdrop-blur-2xl rounded-md">{tech}</span>
@@ -49,7 +49,7 @@ export default function ProjectCard(project: ProjectProps) {
                         <h2 className="project-title text-2xl font-bold font-lexend text-white">{project.title}</h2>
                         <p className="project-date font-lexend font-light text-white/70">{project.date}</p>
                     </div>
-                    <p className="project-description w-full px-4 font-lexend font-light text-[20px] text-[#8F8F8F]">{project.description}</p>
+                    <p className="project-description w-full px-4 font-lexend font-light text-[18px] text-[#8F8F8F]">{project.description}</p>
                     <div className="project-techstack flex flex-row flex-wrap gap-2 mt-4 px-4">
                         {project.techstack.map((tech, index) => (
                             <span key={index} className="tech-item bg-white/10 text-white/70 text-xs font-jetBrains-mono px-2 py-1 backdrop-blur-2xl rounded-md">{tech}</span>
