@@ -1,11 +1,4 @@
 export default function ExperienceList(ListProps: { Company: string, Position: string[], Time: string[], Description?: string[] }) {
-    function beforeElement() {
-        return (
-            <div className="h-[10px] w-[10px] bg-white rounded-[2px]"></div>
-        );
-    }
-
-
     function ListItems(ItemProps: { Position: string, Time: string, Description?: string }) {
         return (
             <li className="relative pl-6 

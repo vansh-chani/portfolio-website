@@ -54,10 +54,10 @@ export default function Navbar({ page, setPage }: NavbarProps) {
     }
   }
 
-  function HandleScrolledClicked(event: React.MouseEvent<HTMLParagraphElement>) {
-    const targetId = event.currentTarget.id;
-    setPage(targetId);
-  }
+  // function HandleScrolledClicked(event: React.MouseEvent<HTMLParagraphElement>) {
+  //   const targetId = event.currentTarget.id;
+  //   setPage(targetId);
+  // }
 
   if (scrolled === 0) {
     return (

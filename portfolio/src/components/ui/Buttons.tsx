@@ -4,7 +4,6 @@ import linkedinLogo from '../../assets/Linkedin.svg';
 import arrow from '../../assets/ArrowUR.svg';
 import discordLogo from '../../assets/Discord.svg';
 import mailLogo from '../../assets/Mail.svg';
-import { url } from 'inspector/promises';
 
 export function GitHubButton() {
     return (
