@@ -7,6 +7,7 @@ import ExperienceList from "./ui/ExperienceList";
 import EducationCard from "./ui/EducationCard";
 import TechSkillsCard from "./ui/TechSkillsCard";
 import CertificationCard from "./ui/CertificationCard";
+import { useEffect } from "react";
 
 const experienceData = [
     {
@@ -84,11 +85,26 @@ const certificationsData = [
 ];
 
 export default function About() {
+    useEffect(() => {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("fade-in");
+                        } else {
+                            entry.target.classList.remove("fade-in");
+                        }
+                    });
+                });
+
+                document.querySelectorAll(".introduction, .desc-about, .description, .experience, .education, .techSkills, .certifications").forEach((el) => observer.observe(el));
+
+                return () => observer.disconnect();
+            }, []);
 
     return (
         <section id="about" className="min-h-screen flex flex-col items-center">
             <SideNav />
-            <div className="introduction flex flex-row justify-center items-start gap-30 pt-40" id="introduction_section">
+            <div className="introduction flex flex-row justify-center items-start gap-30 pt-40 opacity-0" id="introduction_section">
                 <div className="profile flex flex-col gap-5 items-center justify-center">
                     <Image src={profile} alt="Vansh's profile" className="prp w-[170px] h-[170px] rounded-[100%]" />
                     <div className="location font-lexend text-[#8f8f8f] font-light text-[16px] flex flex-row gap-2 items-center justify-center">
@@ -106,30 +122,30 @@ export default function About() {
                     </div>
                 </div>
             </div>
-            <div className="description mt-12 w-110 ml-80">
+            <div className="desc-about mt-12 w-110 ml-80 opacity-0">
                 <p className="font-lexend text-white font-normal text-[20px]">
-                    I’m a software developer passionate about AI and machine learning. I design and implement data-driven algorithms and intelligent systems that adapt, optimize performance, and deliver real-world impact.
+                    I'm a software developer passionate about AI and machine learning. I design and implement data-driven algorithms and intelligent systems that adapt, optimize performance, and deliver real-world impact.
                 </p>
             </div>
-            <div className="experience pt-22 w-110 ml-80" id="experience_section">
+            <div className="experience pt-22 w-110 ml-80 opacity-0" id="experience_section">
                 <h1 className="font-jetBrains-mono text-[36px] font-extrabold">Experience</h1>
                 {experienceData.map((exp, index) => (
                     <ExperienceList key={index} Company={exp.company} Position={exp.positions} Time={exp.times} Description={exp.descriptions} />
                 ))}
             </div>
-            <div className="education pt-22 w-120 ml-90" id="education_section">
+            <div className="education pt-22 w-120 ml-90 opacity-0" id="education_section">
                 <h1 className="font-jetBrains-mono text-[36px] font-extrabold">Education</h1>
                 {educationData.map((edu, index) => (
                     <EducationCard key={index} Institution={edu.institution} Degree={edu.degree} Time={edu.time} Grade={edu.grade} Percentage={edu.Percentage} />
                 ))}
             </div>
-            <div className="techSkills pt-22 w-110 ml-80" id="techSkills_section">
+            <div className="techSkills pt-22 w-110 ml-80 opacity-0" id="techSkills_section">
                 <h1 className="font-jetBrains-mono text-[36px] font-extrabold">Technical Skills</h1>
                 {techSkillsData.map((tech, index) => (
                     <TechSkillsCard key={index} Title={tech.title} Skills={tech.skills} />
                 ))}
             </div>
-            <div className="certifications pt-22 w-120 ml-90 mb-32" id="certifications_section">
+            <div className="certifications pt-22 w-120 ml-90 mb-32 opacity-0" id="certifications_section">
                 <h1 className="font-jetBrains-mono text-[36px] font-extrabold">Certifications</h1>
                 {certificationsData.map((cert, index) => (
                     <CertificationCard key={index} Title={cert.Title} Issuer={cert.Issuer} Year={cert.Year} CertUrl={cert.CertUrl} />

@@ -61,7 +61,7 @@ export default function Navbar({ page, setPage }: NavbarProps) {
 
   if (scrolled === 0) {
     return (
-      <nav className="navbar bg-[#0A0A0A] fixed bottom-0 w-full border-t-2 border-t-white/30">
+      <nav className="navbar bg-[#0A0A0A] fixed bottom-0 w-full border-t-2 border-t-white/30 z-20">
         <NavItems />
       </nav>
     );
@@ -76,7 +76,7 @@ export default function Navbar({ page, setPage }: NavbarProps) {
   }
   else if (scrolled > 0) {
     return (
-      <nav className="navbar bg-[#0a0a0a80] w-full border-t-2 border-t-white/30 border-b-2 border-b-white/0 border-x-2 border-x-white/0">
+      <nav className="navbar bg-[#0a0a0a80] w-full border-t-2 border-t-white/30 border-b-2 border-b-white/0 border-x-2 border-x-white/0 z-20">
         <NavItems />
       </nav>
     );

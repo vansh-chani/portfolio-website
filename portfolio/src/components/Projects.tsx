@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import ProjectCard from "./ui/ProjectCard";
 
 const projectList = [{
@@ -26,12 +27,29 @@ const projectList = [{
 }];
 
 export default function Projects() {
-    return (
-        <section id="projects" className="min-h-screen flex flex-col items-center pb-40">
-            <h1 className="heading-projects font-jetBrains-mono text-4xl font-extrabold min-w-[84vw] p-4 mt-30 pb-10 text-white border-b-1 border-b-white/30 text-center">PROJECTS</h1>
-            {projectList.map((project, index) => (
-                <ProjectCard key={index} {...project} config={index % 2 === 0 ? "right" : "left"} />
-            ))}
-        </section>
-    );
-}
+        useEffect(() => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("fade-in");
+                    } else {
+                        entry.target.classList.remove("fade-in");
+                    }
+                });
+            });
+
+            document.querySelectorAll(".project-card").forEach((el) => observer.observe(el));
+
+            return () => observer.disconnect();
+        }, []);
+
+
+        return (
+            <section id="projects" className="min-h-screen flex flex-col items-center pb-40">
+                <h1 className="heading-projects font-jetBrains-mono text-4xl font-extrabold min-w-[84vw] p-4 mt-30 pb-10 text-white border-b-1 border-b-white/30 text-center">PROJECTS</h1>
+                {projectList.map((project, index) => (
+                    <ProjectCard key={index} {...project} config={index % 2 === 0 ? "right" : "left"} />
+                ))}
+            </section>
+        );
+    }
