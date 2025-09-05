@@ -49,7 +49,7 @@ body {
 }
 
 .fade-in {
-  animation: fadeIn 0.75s ease-in-out both;
+  animation: fadeIn .3s ease-in-out both;
 }
 
 @keyframes fadeIn {
@@ -61,6 +61,40 @@ body {
   to {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.project-card-left-appear {
+  animation: fadeInfromLeft .5s ease-in-out both;
+}
+
+@keyframes fadeInfromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+  }
+}
+
+.project-card-right-appear {
+  animation: fadeInfromRight .5s ease-in-out both;
+}
+
+@keyframes fadeInfromRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
     filter: blur(0);
   }
 }

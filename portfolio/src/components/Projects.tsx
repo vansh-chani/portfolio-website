@@ -30,19 +30,34 @@ const projectList = [
 
 export default function Projects() {
     useEffect(() => {
-        const observer = new IntersectionObserver((entries) => {
+        const observerLeft = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add("fade-in");
+                    entry.target.classList.add("project-card-left-appear");
                 } else {
-                    entry.target.classList.remove("fade-in");
+                    entry.target.classList.remove("project-card-left-appear");
+                }
+            });
+        });
+        const observerRight = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("project-card-right-appear");
+                } else {
+                    entry.target.classList.remove("project-card-right-appear");
                 }
             });
         });
 
-        document.querySelectorAll(".project-card").forEach((el) => observer.observe(el));
+        document.querySelectorAll(".project-image-left").forEach((el) => observerLeft.observe(el));
+        document.querySelectorAll(".project-info-left").forEach((el) => observerLeft.observe(el));
+        document.querySelectorAll(".project-image-right").forEach((el) => observerRight.observe(el));
+        document.querySelectorAll(".project-info-right").forEach((el) => observerRight.observe(el));
 
-        return () => observer.disconnect();
+        return () => {
+            observerLeft.disconnect();
+            observerRight.disconnect();
+        };
     }, []);
 
 
