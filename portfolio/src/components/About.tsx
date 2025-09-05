@@ -7,7 +7,7 @@ import ExperienceList from "./ui/ExperienceList";
 import EducationCard from "./ui/EducationCard";
 import TechSkillsCard from "./ui/TechSkillsCard";
 import CertificationCard from "./ui/CertificationCard";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const experienceData = [
     {
@@ -85,25 +85,54 @@ const certificationsData = [
 ];
 
 export default function About() {
+    const [view, setview] = useState("introduction_section");
+
     useEffect(() => {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add("fade-in");
-                        } else {
-                            entry.target.classList.remove("fade-in");
-                        }
-                    });
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("fade-in");
+                } else {
+                    entry.target.classList.remove("fade-in");
+                }
+            });
+        });
+
+        document.querySelectorAll(".introduction, .desc-about, .description, .experience, .education, .techSkills, .certifications").forEach((el) => observer.observe(el));
+
+        return () => observer.disconnect();
+    }, []);
+    useEffect(() => {
+        const observerView = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        console.log(entry.target.id);
+                        setview(entry.target.id);
+                    }
                 });
+            },
+            {
+                root: null,
+                threshold: 0.2,
+                rootMargin: "-10% 0px -50% 0px",
+            }
+        );
+        const sectionList = ["introduction_section", "experience_section", "education_section", "techSkills_section", "certifications_section"];
+        sectionList.forEach(sec => {
+            const element = document.querySelector(`#${sec}`);
+            if (element) {
+                observerView.observe(element);
+            }
 
-                document.querySelectorAll(".introduction, .desc-about, .description, .experience, .education, .techSkills, .certifications").forEach((el) => observer.observe(el));
+        });
+        return () => observerView.disconnect();
+    }, []);
 
-                return () => observer.disconnect();
-            }, []);
 
     return (
         <section id="about" className="min-h-screen flex flex-col items-center">
-            <SideNav />
+            <SideNav view={view} setView={setview} />
             <div className="introduction flex flex-row justify-center items-start gap-30 pt-40 opacity-0" id="introduction_section">
                 <div className="profile flex flex-col gap-5 items-center justify-center">
                     <Image src={profile} alt="Vansh's profile" className="prp w-[170px] h-[170px] rounded-[100%]" />
