@@ -84,6 +84,83 @@ const certificationsData = [
     }
 ];
 
+export function AboutMobile(){
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("fade-in");
+                } else {
+                    entry.target.classList.remove("fade-in");
+                }
+            });
+        },
+        {
+            root: null,
+            threshold: 0.1,
+            rootMargin: "0px 0px -10% 0px",
+        });
+
+        document.querySelectorAll(".introduction, .desc-about, .description, .experience, .education, .techSkills, .certifications").forEach((el) => observer.observe(el));
+
+        return () => observer.disconnect();
+    }, []);
+
+
+    return (
+        <section id="about" className="min-h-screen flex flex-col items-center">
+            <div className="introduction flex flex-col justify-center items-center gap-10 pt-20 opacity-0" id="introduction_section">
+                <div className="profile flex flex-col gap-5 items-center justify-center">
+                    <Image src={profile} alt="Vansh's profile" className="prp w-[170px] h-[170px] rounded-[100%]" />
+                    <div className="location font-lexend text-[#8f8f8f] font-light text-[16px] flex flex-row gap-2 items-center justify-center">
+                        <Image src={globe} alt="" />
+                        <p>Vellore, India</p>
+                    </div>
+                </div>
+                <div className="info">
+                    <h1 className="font-jetBrains-mono text-[48px] text-center font-extrabold">Vansh Chani</h1>
+                    <h2 className="font-lexend font-light text-[#8f8f8f] text-center text-[32px]">Software Engineer</h2>
+                    <div className="buttons flex flex-row flex-wrap gap-4 px-4 justify-center">
+                        <GithubButtonSmall />
+                        <LinkedInButtonSmall />
+                        <MailButtonSmall />
+                    </div>
+                </div>
+            </div>
+            <div className="desc-about mt-12 max-w-110  opacity-0">
+                <p className="font-lexend text-white font-normal text-[18px] px-4">
+                    I&apos;m a software developer passionate about AI and machine learning. I design and implement data-driven algorithms and intelligent systems that adapt, optimize performance, and deliver real-world impact.
+                </p>
+            </div>
+            <div className="experience pt-22 max-w-110 opacity-0 px-4" id="experience_section">
+                <h1 className="font-jetBrains-mono text-[36px] font-extrabold">Experience</h1>
+                {experienceData.map((exp, index) => (
+                    <ExperienceList key={index} Company={exp.company} Position={exp.positions} Time={exp.times} Description={exp.descriptions} />
+                ))}
+            </div>
+            <div className="education pt-22 max-w-110 opacity-0 px-4" id="education_section">
+                <h1 className="font-jetBrains-mono text-[36px] font-extrabold">Education</h1>
+                {educationData.map((edu, index) => (
+                    <EducationCard key={index} Institution={edu.institution} Degree={edu.degree} Time={edu.time} Grade={edu.grade} Percentage={edu.Percentage} />
+                ))}
+            </div>
+            <div className="techSkills pt-22 max-w-110 opacity-0 px-4" id="techSkills_section">
+                <h1 className="font-jetBrains-mono text-[36px] font-extrabold">Technical Skills</h1>
+                {techSkillsData.map((tech, index) => (
+                    <TechSkillsCard key={index} Title={tech.title} Skills={tech.skills} />
+                ))}
+            </div>
+            <div className="certifications pt-22 max-w-110 mb-20 opacity-0 px-4" id="certifications_section">
+                <h1 className="font-jetBrains-mono text-[36px] font-extrabold">Certifications</h1>
+                {certificationsData.map((cert, index) => (
+                    <CertificationCard key={index} Title={cert.Title} Issuer={cert.Issuer} Year={cert.Year} CertUrl={cert.CertUrl} />
+                ))}
+            </div>
+
+        </section>
+    );
+}
+
 export default function About() {
     const [view, setview] = useState("introduction_section");
 
@@ -96,6 +173,11 @@ export default function About() {
                     entry.target.classList.remove("fade-in");
                 }
             });
+        },
+        {
+            root: null,
+            threshold: 0.1,
+            rootMargin: "0px 0px -10% 0px",
         });
 
         document.querySelectorAll(".introduction, .desc-about, .description, .experience, .education, .techSkills, .certifications").forEach((el) => observer.observe(el));

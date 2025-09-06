@@ -19,3 +19,19 @@ const Footer = () => {
 };
 
 export default Footer;
+
+export function FooterMobile() {
+  return (
+    <footer className="footer flex flex-col items-center border-t-1 border-t-white/30 py-6 mb-20">
+      <div className="socials flex flex-row my-2">
+        <a href="https://github.com/vansh-chani" target="_blank" rel="noopener noreferrer">
+          <Image src={GithubLogo} alt="GitHub Logo" className="w-4 h-4 mx-2" />
+        </a>
+        <a href="https://www.linkedin.com/in/vansh-chani-506250285/" target="_blank" rel="noopener noreferrer">
+          <Image src={LinkedInLogo} alt="LinkedIn Logo" className="w-4 h-4 mx-2" />
+        </a>
+      </div>
+      <p className="footer-content font-lexend text-[16px] text-white/50 bottom-0">© Copyright - 2025<span className="text-white"> &middot; Vansh Chani</span></p>
+    </footer>
+  );
+};

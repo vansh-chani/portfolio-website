@@ -1,5 +1,10 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import mailIcon from "../../assets/mailIcon.svg";
+import projectsIcon from "../../assets/projectsIcon.svg";
+import resumeIcon from "../../assets/resumeIcon.svg";
+import aboutIcon from "../../assets/aboutIcon.svg";
 
 type NavbarProps = {
   page: string;
@@ -156,3 +161,71 @@ export default function Navbar({ page, setPage }: NavbarProps) {
   }
 }
 
+type NavbarMobileProps = {
+  content: string;
+  setContent: React.Dispatch<React.SetStateAction<string>>;
+};
+
+export function NavbarMobile({ content, setContent }: NavbarMobileProps) {
+
+  function handleClick(event: React.MouseEvent<HTMLParagraphElement>) {
+    const targetId = event.currentTarget.id;
+    setContent(targetId);
+    const element = document.getElementById(targetId + "_content");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+      
+    }
+  }
+
+  return (
+    <nav className="navbar flex flex-row items-center z-20 bg-[#16161680] backdrop-blur-xl shadow-[0_4px_20px_rgba(0,0,0,1)] fixed bottom-7 max-w-[300px] max-h-[58px] border-1 border-white/10 rounded-[20px] transition-all duration-300 ease-in-out">
+      <div className="container max-w-[960px] mx-auto px-8 py-5 flex flex-row gap-4 justify-between items-center">
+        <p onClick={handleClick}
+          style={{
+            backgroundColor: content === "about" ? "#48484880" : "transparent",
+            borderRadius: content === "about" ? "12px" : "0px",
+            border: content === "about" ? "0.5px solid #ffffff20" : "none",
+            color: content === "about" ? "#ffffff" : "#ffffff/70",
+          }}
+          className="text-white/70 tracking-wide text-[16px] py-2 px-2 font-regular font-jetBrains-mono inline-block hover:text-white/100 hover:cursor-pointer hover:scale-101 transition-all duration-100 ease-in-out"
+          id="about">
+          <Image src={aboutIcon} alt="about" className="inline-block w-6" />
+        </p>
+        <p onClick={handleClick}
+          style={{
+            backgroundColor: content === "resume" ? "#48484880" : "transparent",
+            borderRadius: content === "resume" ? "12px" : "0px",
+            border: content === "resume" ? "0.5px solid #ffffff20" : "none",
+            color: content === "resume" ? "#ffffff" : "#ffffff/70",
+          }}
+          className="text-white/70 tracking-wide text-[16px] py-2 px-2 font-regular font-jetBrains-mono inline-block hover:text-white/100 hover:cursor-pointer hover:scale-101 transition-all duration-100 ease-in-out"
+          id="resume">
+          <Image src={resumeIcon} alt="resume" className="inline-block w-6" />
+        </p>
+        <p onClick={handleClick}
+          style={{
+            backgroundColor: content === "projects" ? "#48484880" : "transparent",
+            borderRadius: content === "projects" ? "12px" : "0px",
+            border: content === "projects" ? "0.5px solid #ffffff20" : "none",
+            color: content === "projects" ? "#ffffff" : "#ffffff/70",
+          }}
+          className="text-white/70 tracking-wide text-[16px] py-2 px-2 font-regular font-jetBrains-mono inline-block hover:text-white/100 hover:cursor-pointer hover:scale-101 transition-all duration-100 ease-in-out"
+          id="projects">
+          <Image src={projectsIcon} alt="projects" className="inline-block w-6" />
+        </p>
+        <p onClick={handleClick}
+          style={{
+            backgroundColor: content === "contact" ? "#48484880" : "transparent",
+            borderRadius: content === "contact" ? "12px" : "0px",
+            border: content === "contact" ? "0.5px solid #ffffff20" : "none",
+            color: content === "contact" ? "#ffffff" : "#ffffff/70",
+          }}
+          className="text-white/70 tracking-wide text-[16px] py-2 px-2 font-regular font-jetBrains-mono inline-block hover:text-white/100 hover:cursor-pointer hover:scale-101 transition-all duration-100 ease-in-out"
+          id="contact">
+          <Image src={mailIcon} alt="contact" className="inline-block w-6" />
+        </p>
+      </div>
+    </nav>
+  );
+}
