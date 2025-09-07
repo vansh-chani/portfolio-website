@@ -53,7 +53,7 @@ export function ContactMobile() {
   }, []);
   return (
     <section id="contact" className=" flex flex-col  items-center">
-      <h1 className="heading-contact  font-jetBrains-mono text-3xl font-extrabold w-[90vw] p-4 mt-10 pb-10 text-white border-b-1 border-b-white/30 text-center">CONTACT</h1>
+      <h1 className="heading-contact  font-jetBrains-mono text-3xl font-extrabold w-[90vw] md:w-[60vw] p-4 mt-10 pb-10 text-white border-b-1 border-b-white/30 text-center">CONTACT</h1>
       <div className="content-contact flex flex-col items-center justify-center h-140 opacity-0">
         <p className="mt-2 max-w-[300px] font-lexend font-regular text-[16px] text-[#8f8f8f] text-center">Got an idea, a challenge, or just want to talk tech? Drop me a message — I’m always up for interesting conversations and new projects.</p>
         <div className="social-buttons flex flex-row flex-wrap items-center justify-center gap-6 mt-4">

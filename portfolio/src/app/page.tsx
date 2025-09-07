@@ -1,13 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Navbar, {NavbarMobile} from "@/components/ui/Navbar";
+import Navbar, { NavbarMobile } from "@/components/ui/Navbar";
 import HeroText from "@/components/HeroText";
-import About, {AboutMobile} from "@/components/About";
-import Projects from "@/components/Projects";
-import Resume, {ResumeMobile} from "@/components/Resume";
+import About, { AboutMobile } from "@/components/About";
+import Projects, { ProjectsMobile } from "@/components/Projects";
+import Resume, { ResumeMobile } from "@/components/Resume";
 import Blogs from "@/components/Blogs";
-import Contact, {ContactMobile} from "@/components/Contact";
-import Footer,{FooterMobile} from "@/components/Footer";
+import Contact, { ContactMobile } from "@/components/Contact";
+import Footer, { FooterMobile } from "@/components/Footer";
 
 function MobileComponent() {
   const [page, setPage] = useState("");
@@ -26,7 +26,10 @@ function MobileComponent() {
         <div id="resume_content" className="flex flex-col items-center">
           <ResumeMobile />
         </div>
-        <div id = "contact_content" className="flex flex-col items-center">
+        <div id="projects_content" className="flex flex-col items-center">
+          <ProjectsMobile />
+        </div>
+        <div id="contact_content" className="flex flex-col items-center">
           <ContactMobile />
         </div>
         <FooterMobile />
