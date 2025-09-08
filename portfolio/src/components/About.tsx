@@ -1,5 +1,5 @@
 import Image from "next/image";
-import profile from "../assets/Profile.jpg";
+import profile from "../assets/Profile.png";
 import globe from "../assets/Globe.svg";
 import { GithubButtonSmall, LinkedInButtonSmall, MailButtonSmall } from "./ui/Buttons";
 import SideNav from "./ui/SideNav";

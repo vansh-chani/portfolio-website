@@ -6,7 +6,7 @@ const projectList = [
         title: "Papers",
         date: "Jun, 2024",
         description: "Automated exam paper tagging system that extracts structured information and answer keys using Gemini 2.0 Flash, with secondary pipelines for unstructured papers. Deployed on AWS EC2, it processed 1500+ papers, enhancing accessibility and searchability.",
-        image: "",
+        image: "/projects/papers.jpg",
         githubUrl: "https://github.com/CodeChefVIT/papers-codechef",
         techstack: ["Next.js", "TypeScript", "Tailwind CSS", "Gemini API", "AWS EC2"],
     },
@@ -22,7 +22,7 @@ const projectList = [
         title: "Refyne.AI",
         date: "Feb, 2025",
         description: "Automated dataset integration and preprocessing system that expands datasets by an average of 40%, improves data completion by approx. 20%, and boosts regression accuracy by 30% through aprrox. 20+ new features using Deep Feature Synthesis.",
-        image: "",
+        image: "/projects/refyne.png",
         githubUrl: "https://github.com/vansh-chani/Refyne.AI_ML",
         techstack: ["FeatureTools", "Scikit-Learn", "Kaggle API", "Gemini API", "Next.js", "TypeScript"],
     }
